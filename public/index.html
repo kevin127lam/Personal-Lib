@@ -1,14 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title> 
-    <link rel="stylesheet" href="../styles/styles.css"/>
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <title>Library App</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+
 <body>
-  <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>  
-  <script src="../scripts/script.js"></script>
-  <div id="container">
-  </div>
+  <form id="bookForm" style="float: left">
+    <br> Title:
+    <input type="text" id="title" /></input>
+
+    <br>Author:
+    <input type="text" id="auth" name="auth" required>
+    <select id="authors" name="authors"></select>
+
+    <br> Genre:
+    <select id="genre">
+      <option value="fantasy">Fantasy</option>
+      <option value="scifi">Science Fiction</option>
+      <option value="dystopian">Dystopian</option>
+      <option value="actadv">Action/Adventure</option>
+      <option value="mystery">Mystery</option>
+    </select>
+
+    <br>Publisher:
+    <input type="text" id="publ" name="publ" required>
+    <select id="publishers" name="publishers"></select>
+
+    <br> Year of Publication:
+    <input type="text" id="year" /></input>
+
+    <br> Type of Book:</br><br>
+    <select id="type">
+      <input type="checkbox" id="hc" name="hc" value="hc">
+      <label for="hc">Hardcover</label><br>
+      <input type="checkbox" id="pb" name="pb" value="pb">
+      <label for="pb">Paperback</label><br>
+      <input type="checkbox" id="eb" name="eb" value="eb">
+      <label for="eb">Ebook</label><br>
+      <input type="checkbox" id="aud" name="aud" value="aud">
+      <label for="aud">Audio</label><br>
+      <input type="checkbox" id="other" name="other" value="other">
+      <label for="other">Other</label><br><br>
+      <input type="submit" value="Submit">
+    </id>
+
+      <button type="button" id="add">Add</button>
+      <button type="button" id="list">List</button>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+      <script src="../scripts/script.js"></script>
+      <div id="container">
+      </div>
 </body>
+
 </html>
