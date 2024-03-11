@@ -12,19 +12,26 @@ app.use(express.static(
 // Insert code here
 let books = {};
 let nextid = 0;
+let authors = [];
+let publishers = [];
 
 function returnBooks(res) {
   let bookList = [];
   for (b in books) {
     let book = books[b];
-    bookList.push[book];
+    bookList.push(book);
   }
   const ret = JSON.stringify(bookList);
   res.end(ret);
 }
 
 app.get("/load", (req, res) => {
-  returnBooks(res);
+  const data = {
+    authors: authors,
+    publishers: publishers
+  };
+  const ret = JSON.stringify(data);
+  res.end(ret);
 });
 
 app.get("/add", (req, res) => {
@@ -37,14 +44,28 @@ app.get("/add", (req, res) => {
   const id = "book" + ++nextid;
   const book = new Book(id, title, auth, genre, publ, year, btype)
   books[id] = book;
-  returnBooks(res);
-  //res.json({ status: 'success', message: 'Book added successfully', books });
+
+  if(!authors.includes(auth)){
+    authors.push[auth];
+  }
+  if(!publishers.includes(publ)){
+    publishers.push[publ];
+  }
+
+  const data = {
+    authors: authors,
+    publishers: publishers
+  };
+
+  const ret = JSON.stringify(data);
+  res.end(ret);
+
 });
 
 app.get('/list', (req, res) => {
-  // res.json(books);
-  const bookList = Object.values(books);
-  res.json(bookList);
+  // const bookList = Object.values(books);
+  // res.json(bookList);
+  returnBooks(res);
 });
 
 class Book {
