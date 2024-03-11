@@ -8,53 +8,68 @@
 </head>
 
 <body>
-  <form id="bookForm" style="float: left">
+  <div id="bookForm" style="float: left">
     <br> Title:
-    <input type="text" id="title" /></input>
+    <input type="text" id="title"/></input>
 
     <br>Author:
-    <input type="text" id="auth" name="auth" required>
+    <input type="text" id="auth"></input>
     <select id="authors" name="authors"></select>
 
     <br> Genre:
     <select id="genre">
-      <option value="fantasy">Fantasy</option>
-      <option value="scifi">Science Fiction</option>
-      <option value="dystopian">Dystopian</option>
-      <option value="actadv">Action/Adventure</option>
-      <option value="mystery">Mystery</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Science Fiction">Science Fiction</option>
+      <option value="Dystopian">Dystopian</option>
+      <option value="Action/Adventure">Action/Adventure</option>
+      <option value="Mystery">Mystery</option>
     </select>
 
     <br>Publisher:
-    <input type="text" id="publ" name="publ" required>
+    <input type="text" id="publ"></input>
     <select id="publishers" name="publishers"></select>
 
     <br> Year of Publication:
     <input type="text" id="year" /></input>
 
-    <br> Type of Book:</br><br>
-    <select id="type">
-      <input type="checkbox" id="hc" name="hc" value="hc">
+    <br> Type of Book:</br>
+    <div id="btype">
+      <input type="checkbox" id="hc" >
       <label for="hc">Hardcover</label><br>
-      <input type="checkbox" id="pb" name="pb" value="pb">
+      <input type="checkbox" id="pb">
       <label for="pb">Paperback</label><br>
-      <input type="checkbox" id="eb" name="eb" value="eb">
+      <input type="checkbox" id="eb">
       <label for="eb">Ebook</label><br>
-      <input type="checkbox" id="aud" name="aud" value="aud">
+      <input type="checkbox" id="aud">
       <label for="aud">Audio</label><br>
-      <input type="checkbox" id="other" name="other" value="other">
+      <input type="checkbox" id="other">
       <label for="other">Other</label><br><br>
-      <input type="submit" value="Submit">
-    </id>
+      </id>
 
       <button type="button" id="add">Add</button>
       <button type="button" id="list">List</button>
-      </div>
+    </div>
 
-      <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
-      <script src="../scripts/script.js"></script>
-      <div id="container">
-      </div>
+    <div id="table" style="float: left">
+      <table id="booktable" style="border: 5px solid black;">
+        <thead>
+          <tr>
+            <th style="padding-right: 15em;">Title</th>
+            <th style="padding-right: 8em;">Author</th>
+            <th style="padding-right: 7em;">Genre</th>
+            <th style="padding-right: 8em;">Publisher</th>
+            <th style="padding-right: 3em;">Year</th>
+            <th style="padding-right: 10em;">Type</th>
+          </tr>
+        </thead>
+        <tbody id="bookrows">
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+    <script src="../scripts/script.js"></script>
+  </div>
 </body>
 
 </html>

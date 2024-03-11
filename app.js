@@ -11,13 +11,13 @@ app.use(express.static(
 
 // Insert code here
 let books = {};
-let bookNum = 0;
+let nextid = 0;
 
 function returnBooks(res) {
   let bookList = [];
   for (b in books) {
     let book = books[b];
-    bookList.push[b];
+    bookList.push[book];
   }
   const ret = JSON.stringify(bookList);
   res.end(ret);
@@ -33,22 +33,32 @@ app.get("/add", (req, res) => {
   const genre = req.query.genre;
   const publ = req.query.publ;
   const year = req.query.year;
-  const type = req.query.type;
-  const book = new Book(title, auth, genre, publ, year, type)
-  books[bookNum++] = book;
+  const btype = req.query.btype;
+  const id = "book" + ++nextid;
+  const book = new Book(id, title, auth, genre, publ, year, btype)
+  books[id] = book;
   returnBooks(res);
+  //res.json({ status: 'success', message: 'Book added successfully', books });
+});
+
+app.get('/list', (req, res) => {
+  // res.json(books);
+  const bookList = Object.values(books);
+  res.json(bookList);
 });
 
 class Book {
-  constructor(title, author, genre, publisher, year, type) {
+  constructor(id, title, author, genre, publisher, year, btype) {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.genre = genre;
     this.publisher = publisher;
     this.year = year;
-    this.type = type;
+    this.btype = btype;
   }
 }
 
-app.listen(3000);
-
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
