@@ -10,7 +10,7 @@
 <body>
   <div id="bookForm" style="float: left">
     <br> Title:
-    <input type="text" id="title"/></input>
+    <input type="text" id="title" /></input>
 
     <br>Author:
     <input type="text" id="auth"></input>
@@ -32,37 +32,39 @@
     <br> Year of Publication:
     <input type="text" id="year" /></input>
 
-    <br> 
+    <br>
     <label for="btype">Type Of Book</label>
     <br>
-      <input type="checkbox" name="btype" value="hardcover">Hardcover</button>
-      <input type="checkbox" name="btype" value="paperback">Paperback</button>
-      <input type="checkbox" name="btype" value = "ebook">Ebook</button>
-      <input type="checkbox" name="btype" value = "audiobook">Audio Book</button>
-    <br><br>
+    <input type="checkbox" name="btype" value="hardcover">Hardcover</button>
+    <input type="checkbox" name="btype" value="paperback">Paperback</button>
+    <input type="checkbox" name="btype" value="ebook">Ebook</button>
+    <input type="checkbox" name="btype" value="audiobook">Audio Book</button>
+    <br>
+    <div class=buttons>
       <button type="button" id="add">Add</button>
       <button type="button" id="list">List</button>
     </div>
+  </div>
 
-    <div id="table" style="float: left">
-      <table id="booktable" style="border: 5px solid black;">
-        <thead>
-          <tr>
-            <th style="padding-right: 15em;">Title</th>
-            <th style="padding-right: 8em;">Author</th>
-            <th style="padding-right: 7em;">Genre</th>
-            <th style="padding-right: 8em;">Publisher</th>
-            <th style="padding-right: 3em;">Year</th>
-            <th style="padding-right: 10em;">Type</th>
-          </tr>
-        </thead>
-        <tbody id="bookrows">
-        </tbody>
-      </table>
-    </div>
+  <div id="table" style="float: left">
+    <table id="booktable" style="border: 5px solid black;">
+      <thead>
+        <tr>
+          <th style="padding-right: 15em;">Title</th>
+          <th style="padding-right: 8em;">Author</th>
+          <th style="padding-right: 7em;">Genre</th>
+          <th style="padding-right: 8em;">Publisher</th>
+          <th style="padding-right: 3em;">Year</th>
+          <th style="padding-right: 10em;">Type</th>
+        </tr>
+      </thead>
+      <tbody id="bookrows">
+      </tbody>
+    </table>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
-    <script src="../scripts/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+  <script src="../scripts/script.js"></script>
   </div>
 </body>
 

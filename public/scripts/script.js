@@ -1,21 +1,5 @@
-
+//load when page is initialized
 function init() {
-  // Put initialization code here
-}
-
-function loadTaskRows(books) {
-  $("#bookrows").empty(); //refers to rows in the table
-  books.forEach((book, index) => { $("#bookrows").append(`<tr><td>${book.title}</td><td>${book.author}</td><td>${book.genre}</td><td>${book.publisher}</td><td>${book.year}</td><td>${book.btype}</td></tr>`) });
-}
-
-function loadDropdowns(data) {
-  $("#authors").empty();
-  $("#publishers").empty();
-  data.authors.forEach((auth, index) => { $("#authors").append(`<option value= ${auth}> ${auth}</option>`)});
-  data.publishers.forEach((publ, index) => { $("#publishers").append(`<option value= ${publ}> ${publ}</option>`)});
-}
-
-$(() => {
   $.ajax(
     "/load",
     {
@@ -31,8 +15,28 @@ $(() => {
       }
     }
   );
+}
+
+//calls init function
+$( () => {
+  init();
 });
 
+//loads the rows and values in the table
+function loadTaskRows(books) {
+  $("#bookrows").empty(); //refers to rows in the table
+  books.forEach((book, index) => { $("#bookrows").append(`<tr><td>${book.title}</td><td>${book.author}</td><td>${book.genre}</td><td>${book.publisher}</td><td>${book.year}</td><td>${book.btype}</td></tr>`) });
+}
+
+//loads the non-matching values into the corresponding dropdowns
+function loadDropdowns(data) {
+  $("#authors").empty();
+  $("#publishers").empty();
+  data.authors.forEach((auth, index) => { $("#authors").append(`<option value= ${auth}> ${auth}</option>`)});
+  data.publishers.forEach((publ, index) => { $("#publishers").append(`<option value= ${publ}> ${publ}</option>`)});
+}
+
+//functionality to add values in the fields
 $("#add").click(() => {
   let bookTypes = [];
   $("input:checked").each((index, obj) => bookTypes.push(obj.value));
@@ -50,8 +54,9 @@ $("#add").click(() => {
         btype: bookTypes,
       },
       dataType: "json",
-      success: function (books) {
+      success: function (data) {
         alert("Successfully added");
+        loadDropdowns(data);
       },
       error: function (jqXHR, textStatus, errorThrown) {
         alert("Error: " + jqXHR.responseText);
@@ -68,6 +73,7 @@ $("#add").click(() => {
   $("input:checked").each((index, obj) => $(obj).prop("checked", false));
 });
 
+//loads the list
 $("#list").click(() => {
   $.ajax(
     "/list",
@@ -86,32 +92,3 @@ $("#list").click(() => {
     }
   );
 });
-
-/*append new option to dropdown for adding saved values to dropdown
-initiialize dropdown with value that says "new publisher" if its new pub?
-
-*/
-
-// const a = {};
-// const pub = {};
-// for(){
-//   cons books = (i);
-//   authors[book.aythor] = 1;
-//   publisher... = 1.
-// }
-// for(a in authors){
-//   $("#authorlist").append('<option value'{idk}'>')
-// }
-
-/**
- * functino (){
- * let temp = "";
- * $("input checked").each(
- * (idx.ele) => {
- * const v = $(ele).val()
- * temp += ( v + " ")})
- * };
- * return remp
- * 
- * in the add function send bookType: typeString()
- */

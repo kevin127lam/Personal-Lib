@@ -9,7 +9,7 @@ app.use(express.static(
   path.resolve(__dirname, "public")
 ));
 
-// Insert code here
+
 let books = {};
 let nextid = 0;
 let authors = [];
@@ -25,11 +25,12 @@ function returnBooks(res) {
   res.end(ret);
 }
 
+//called when page is loaded
 app.get("/load", (req, res) => {
   const data = {
     authors: authors,
     publishers: publishers
-  };
+  }
   const ret = JSON.stringify(data);
   res.end(ret);
 });
@@ -45,11 +46,12 @@ app.get("/add", (req, res) => {
   const book = new Book(id, title, auth, genre, publ, year, btype)
   books[id] = book;
 
+  //check if the auth/pub field contains a given value
   if(!authors.includes(auth)){
-    authors.push[auth];
+    authors.push(auth);
   }
   if(!publishers.includes(publ)){
-    publishers.push[publ];
+    publishers.push(publ);
   }
 
   const data = {
@@ -68,6 +70,7 @@ app.get('/list', (req, res) => {
   returnBooks(res);
 });
 
+//book constructor
 class Book {
   constructor(id, title, author, genre, publisher, year, btype) {
     this.id = id;
